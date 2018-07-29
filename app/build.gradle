@@ -1,0 +1,59 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "28.0.1"
+    defaultConfig {
+        applicationId "com.smart.tvpos"
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    signingConfigs {
+        release {
+//            storeFile file('C:/develop/ming_bai.jks')
+            storeFile file('resthome.jks')
+            storePassword 'resthome123'
+            keyAlias 'resthome'
+            keyPassword 'resthome123'
+        }
+    }
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+        }
+        release {
+            shrinkResources true
+            minifyEnabled true
+            zipAlignEnabled true
+            proguardFile('proguard-rules.pro')
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    testCompile 'junit:junit:4.12'
+    compile project(':library')
+    compile 'com.squareup.okhttp3:okhttp:3.5.0'
+    compile 'com.github.bumptech.glide:glide:4.0.0'
+    compile 'jp.wasabeef:glide-transformations:3.0.1'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'org.greenrobot:greendao:3.2.0'
+    compile 'com.android.support:design:25.0.0-alpha1'
+    //    最新版本
+    compile 'com.github.jdsjlzx:LRecyclerView:1.4.3'
+//    //圆角
+//    compile 'q.rorbin:badgeview:1.1.2'
+    compile 'com.android.support:cardview-v7:25.1.0'
+    compile 'com.android.support:multidex:1.0.1'
+
+}

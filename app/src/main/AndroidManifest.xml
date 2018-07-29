@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.smart.tvpos">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".ui.ACT_Login"
+            android:screenOrientation="landscape"
+            android:theme="@style/style_full_screen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- AutoLinearLayout UI设置图稿尺寸基准 -->
+        <meta-data
+            android:name="design_width"
+            android:value="1920" />
+        <meta-data
+            android:name="design_height"
+            android:value="1100" />
+        <!--首页-数据监控-->
+        <activity
+            android:name=".ui.ACT_Home"
+            android:screenOrientation="landscape"
+            android:theme="@style/style_full_screen" />
+        <!--监控概览-->
+        <activity
+            android:name=".ui.ACT_WatchingOverview"
+            android:screenOrientation="landscape"
+            android:theme="@style/style_full_screen" />
+        <!--护理进度-->
+        <activity
+            android:name=".ui.ACT_NursingProgress"
+            android:screenOrientation="landscape"
+            android:theme="@style/style_full_screen" />
+    </application>
+
+</manifest>
